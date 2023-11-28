@@ -3,20 +3,28 @@
 <mapper namespace="com.yedam.myserver.emp.mapper.EmployeeMapper"> 
 
 <select id="findEmployees"  resultType="employee">
-	select employee_id, first_name, last_name, job_id
-	from employees
-	order by employee_id  
+	SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME, JOB_ID
+	  FROM EMPLOYEES
+	 ORDER BY EMPLOYEE_ID  
 </select>
 
+
+<select id="findById"  resultType="employee">
+	SELECT *
+	  FROM EMPLOYEES
+	 WHERE EMPLOYEE_ID = #{employee_id}  
+</select>
+
+
 <insert id="persist" >
-	insert into employees (
-			employee_id,
-			first_name,
-			last_name,
-			email,
-			hire_date,
-			job_id
-	) values (
+	INSERT INTO EMPLOYEES (
+			EMPLOYEE_ID,
+			FIRST_NAME,
+			LAST_NAME,
+			EMAIL,
+			HIRE_DATE,
+			JOB_ID
+	) VALUES (
 			#{employee_id},
 			#{first_name},
 			#{last_name},
@@ -27,31 +35,31 @@
 </insert>
 
 <insert id="remove" >
-	delete from employees
-	where employee_id = #{employee_id}
+	DELETE FROM EMPLOYEES
+	WHERE EMPLOYEE_ID = #{employee_id}
 </insert>
 
 <update id="merge" >
-	update employees
-	   set first_name = #{first_name},
-		   last_name = #{last_name},
-		   email = #{email},
-		   phone_number = #{phone_number},
-		   job_id = #{job_id},	
-		   salary = #{salary}    
-	where employee_id = #{employee_id}
+	UPDATE EMPLOYEES
+	   SET FIRST_NAME = #{first_name},
+		   LAST_NAME = #{last_name},
+		   EMAIL = #{email},
+		   PHONE_NUMBER = #{phone_number},
+		   JOB_ID = #{job_id},	
+		   SALARY = #{salary}    
+	WHERE EMPLOYEE_ID = #{employee_id}
 </update>
 
 <select id="findJobs" resultType="jobs">
-	select job_id, job_title 
-	  from jobs
-	 order by job_id 
+	SELECT JOB_ID, JOB_TITLE 
+	  FROM JOBS
+	 ORDER BY JOB_ID 
 </select>
 
 <select id="findDepartments" resultType="departments">
-	select a.department_id, a.department_name 
-	  from departments a
-	 order by a.department_id 
+	SELECT A.DEPARTMENT_ID, A.DEPARTMENT_NAME 
+	  FROM DEPARTMENTS A
+	 ORDER BY A.DEPARTMENT_ID 
 </select>
 
 </mapper>

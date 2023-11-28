@@ -1,6 +1,6 @@
 package com.yedam.myserver.emp.vo;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Employee {
 
