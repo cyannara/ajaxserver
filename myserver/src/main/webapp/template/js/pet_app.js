@@ -1,5 +1,4 @@
 App = {
-
   init: async function() {
     // Load pets.
     $.getJSON('./resources/pets.json', function(data) {
