@@ -24,15 +24,18 @@
 		}).done((result)=>{ appendDiv("1. " + result);	});
 		
 		$.ajax({
-			url:"resMap"
+			url:"resMap",
+			async: $("#cbAsync").is(":checked")
 		}).done((result)=>{ appendDiv("2. " + result.msg);	});
 		
 		$.ajax({
-			url:"resVO"
+			url:"resVO",
+			async: $("#cbAsync").is(":checked")
 		}).done((result)=>{  appendDiv("3. " + result.msg);	});
 		
 		$.ajax({
-			url:"resEntity"
+			url:"resEntity",
+			async: $("#cbAsync").is(":checked")
 		}).done((result)=>{ appendDiv("4. " + result.msg);	});
 		
 		

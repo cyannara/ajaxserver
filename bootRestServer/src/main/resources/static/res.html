@@ -30,10 +30,18 @@
 			url:"resVO"
 		}).done((result)=>{  appendDiv("3. " + result.msg);	});
 		
-		$.ajax({
+	/* 	$.ajax({
 			url:"resEntity"
-		}).done((result)=>{ appendDiv("4. " + result.msg);	});
-		
+		}).done((result)=>{ appendDiv("4. " + result.msg);
+		}).fail(()=>{	
+		}).alway();
+	
+	   */
+		$.ajax({
+			url:"resEntity",
+			success: result => appendDiv("4. " + result.msg), 
+			error : function(err, status){	appendDiv("4. " + status);	}
+		})
 	}
 	
 	function appendDiv(str){

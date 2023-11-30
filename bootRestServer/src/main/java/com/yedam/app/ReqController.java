@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -19,7 +20,7 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 public class ReqController {
 
-	@PostMapping("reqStr")
+	@RequestMapping("reqStr")
 	@ResponseBody
 	public Map<String, Object> reqStr(String firstName) {
 		log.info(firstName);

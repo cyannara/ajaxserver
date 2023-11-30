@@ -49,12 +49,11 @@ public class ResController {
 	
 	//결과 데이터와 상태 코드를 직접 제어( HttpStatus, HttpHeader, HttpBody)
 	@GetMapping("resEntity")
-	@ResponseBody
 	public ResponseEntity<GreetingVO> resEntity() {
 		GreetingVO vo = new GreetingVO();
 		vo.setMsg("entity hello!");
 		
-		ResponseEntity<GreetingVO> entity = new ResponseEntity<>(vo, HttpStatus.OK);
+		ResponseEntity<GreetingVO> entity = new ResponseEntity<>(vo, HttpStatus.BAD_REQUEST);
 		return entity;
 	}
 		

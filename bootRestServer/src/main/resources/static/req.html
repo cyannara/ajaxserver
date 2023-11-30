@@ -66,12 +66,13 @@
 	<script>
 	$("#btnStr").on("click", ()=>{
 		const firstName = $("#txtStr").val();
+		const dept = 10;
 		$.ajax({
 			url:"reqStr",
 			method : "post",
-			//data:"firstName=" + $("#txtStr").val()
-			//data : {firstName : $("#txtStr").val()}
-			data : {firstName}
+			//data:"firstName=" + $("#txtStr").val() +"&dept=10"
+			//data : {firstName : $("#txtStr").val(), lastName:"choi"}
+			data : {firstName, dept}
 		}).done(result => appendDiv(result.firstName));
 	})
 	
@@ -85,14 +86,16 @@
 	
 		
 	$("#btnJson").on("click", ()=>{
-		let data = {};
-		let arr = $("form[name='frmJson']").serializeArray();
-		$(arr).each((i,item) => {  data[item.name] = item.value;	})
+		//let data = {};
+		//let arr = $("form[name='frmJson']").serializeArray();
+		//$(arr).each((i,item) => {  data[item.name] = item.value;	})
+		const firstName = $("form[name='frmJson']").find("[name=firstName]").val()
+		const lastName = $("form[name='frmJson'] [name=firstName]").val()
 		$.ajax({
 			url:"reqVOJson",
 			method : "post",
 			contentType : "application/json",
-			data : JSON.stringify(data)
+			data : JSON.stringify({firstName, lastName})
 		}).done(result => appendDiv(result.firstName + "," + result.lastName));
 	})	
 	
