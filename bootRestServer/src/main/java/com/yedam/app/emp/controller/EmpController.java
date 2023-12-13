@@ -1,24 +1,19 @@
 package com.yedam.app.emp.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yedam.app.emp.service.EmpService;
 import com.yedam.app.emp.service.EmpVO;
-import com.yedam.app.emp.service.GreetingVO;
 
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 
 @Controller
-@Log4j2
+@Slf4j
 public class EmpController {
 
 	@Autowired
@@ -32,7 +27,7 @@ public class EmpController {
 	@ResponseBody
 	@GetMapping("emp")
 	public List<EmpVO> findEmp(EmpVO vo){
-		log.debug("findEmp=====");
+		log.info("findEmp=====");
 		return empService.findEmp(vo);
 	}
 	

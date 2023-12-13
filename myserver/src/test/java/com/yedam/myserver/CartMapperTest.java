@@ -28,5 +28,6 @@ public class CartMapperTest {
 	public void cartSelectList() {
 		List<CartVO> list = mapper.findAll();
 		System.out.println(list.size());
+		//assert(list.size(),  greaterThen(0) );
 	}
 }
