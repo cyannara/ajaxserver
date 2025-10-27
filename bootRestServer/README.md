@@ -4,6 +4,10 @@
 ```sh
 java -jar restServer.jar
 ```
+데이터베이스 계정 패스워드가 다르다면
+```sh
+java -jar -Dspring.datasource.password=hr restServer.jar
+```
 <img src="./images/00.png">  
 
 ## 서버 테스트
